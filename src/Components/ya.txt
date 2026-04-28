@@ -1,0 +1,23 @@
+PS D:\React\my-app> npm list react
+my-app@0.0.0 D:\React\my-app
+├─┬ @clerk/clerk-react@5.61.6
+│ ├─┬ @clerk/shared@3.47.5
+│ │ ├── react@19.2.5 deduped
+│ │ └─┬ swr@2.3.4
+│ │   ├── react@19.2.5 deduped
+│ │   └─┬ use-sync-external-store@1.6.0
+│ │     └── react@19.2.5 deduped
+│ └── react@19.2.5 deduped
+├─┬ motion@12.38.0
+│ ├─┬ framer-motion@12.38.0
+│ │ └── react@19.2.5 deduped
+│ └── react@19.2.5 deduped
+├─┬ react-dom@19.2.5
+│ └── react@19.2.5 deduped
+├─┬ react-hot-toast@2.6.0
+│ └── react@19.2.5 deduped
+├─┬ react-router-dom@7.14.2
+│ ├─┬ react-router@7.14.2
+│ │ └── react@19.2.5 deduped
+│ └── react@19.2.5 deduped
+└── react@19.2.5

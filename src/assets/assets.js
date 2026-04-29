@@ -194,10 +194,12 @@ export const userDummyData = {
     "email": "demo.user@example.com",
     "image": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvdXBsb2FkZWQvaW1nXzJ2N2c5YVpSSEFVYVUxbmVYZ2JkSVVuWnFzWSJ9",
     "role": "hotelOwner",
-    "createdAt": "2025-03-25T09:29:16.367Z",
-    "updatedAt": "2025-04-10T06:34:48.719Z",
+    "createdAt": "2026-04-29T09:29:16.367Z",
+    "updatedAt": "2026-05-10T06:34:48.719Z",
     "__v": 1,
-    "recentSearchedCities": ["Mumbai"]
+    "recentSearchedCities": [
+        "New York"
+    ]
 }
 
 // Hotel Dummy Data
@@ -210,9 +212,9 @@ export const hotelDummyData = {
     "address": "Malti Cinema Theatre, 123 Street, 23 Colony",
     "contact": "+91 7565488946",
     "owner": userDummyData,
-    "city": "Hyderabad",
-    "createdAt": "2025-04-10T06:22:11.363Z",
-    "updatedAt": "2025-04-10T06:22:11.363Z",
+    "city": "Hydrabaad",
+    "createdAt": "2025-04-10T06:22:11.663Z",
+    "updatedAt": "2025-04-10T06:22:11.663Z",
     "__v": 0
 }
 
@@ -226,8 +228,8 @@ export const roomsDummyData = [
         "amenities": ["Room Service", "Mountain View", "Pool Access"],
         "images": [roomImg1, roomImg2, roomImg3, roomImg4],
         "isAvailable": true,
-        "createdAt": "2025-04-10T06:26:04.013Z",
-        "updatedAt": "2025-04-10T06:26:04.013Z",
+        "createdAt": "2026-04-29T06:26:04.013Z",
+        "updatedAt": "2026-05-10T06:26:04.013Z",
         "__v": 0
     },
     {
@@ -238,8 +240,8 @@ export const roomsDummyData = [
         "amenities": ["Room Service", "Mountain View", "Pool Access"],
         "images": [roomImg2, roomImg3, roomImg4, roomImg1],
         "isAvailable": true,
-        "createdAt": "2025-04-10T06:25:22.593Z",
-        "updatedAt": "2025-04-10T06:25:22.593Z",
+        "createdAt": "2026-04-29T06:25:22.593Z",
+        "updatedAt": "2026-05-10T06:25:22.593Z",
         "__v": 0
     },
     {
@@ -250,8 +252,8 @@ export const roomsDummyData = [
         "amenities": ["Free WiFi", "Free Breakfast", "Room Service"],
         "images": [roomImg3, roomImg4, roomImg1, roomImg2],
         "isAvailable": true,
-        "createdAt": "2025-04-10T06:24:06.285Z",
-        "updatedAt": "2025-04-10T06:24:06.285Z",
+        "createdAt": "2026-05-05T06:24:06.285Z",
+        "updatedAt": "2026-05-10T06:24:06.285Z",
         "__v": 0
     },
     {
@@ -327,4 +329,12 @@ export const dashboardDummyData = {
     "bookings": userBookingsDummyData
 }
 
-// FIX: BookIcon dead code (commented SVG) hata diya — Navbar.jsx mein properly define hai
+// --------- SVG code for Book Icon------
+/* 
+const BookIcon = ()=>(
+    <svg className="w-4 h-4 text-gray-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" >
+    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 19V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13H7a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M9 3v14m7 0v4" />
+</svg>
+)
+
+*/

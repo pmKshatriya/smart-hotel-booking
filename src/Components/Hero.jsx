@@ -5,10 +5,10 @@ import { assets, cities } from "../assets/assets";
 const Hero = () => {
   const navigate = useNavigate();
 
-  // FIX: Form submit handler — page reload rokne ke liye
+  
   const handleSearch = (e) => {
     e.preventDefault();
-    // TODO: Search logic yahan add karo (destination, checkIn, checkOut, guests)
+    
     navigate("/rooms");
   };
 
@@ -23,7 +23,7 @@ const Hero = () => {
       </p>
 
       {/* Heading */}
-      {/* FIX: "Gateway" → "Getaway" (spelling mistake) */}
+     
       <h1 className="font-playfair text-2xl md:text-[56px] md:leading-[56px] font-bold md:font-extrabold max-w-xl mt-4">
         Discover Your Perfect Getaway Destination
       </h1>
@@ -34,16 +34,16 @@ const Hero = () => {
         hotels and resorts. Start your journey today.
       </p>
 
-      {/* FIX: onSubmit handler add kiya taaki page reload na ho */}
+      
       <form
         onSubmit={handleSearch}
-        className="bg-white text-gray-500 rounded-lg px-6 py-4 mt-8 flex flex-col md:flex-row gap-4 max-md:items-start max-md:mx-auto"
+        className="bg-white text-gray-800 rounded-lg px-6 py-4 mt-8 flex flex-col md:flex-row gap-4 max-md:items-start max-md:mx-auto"
       >
 
         {/* Destination */}
         <div>
           <div className="flex items-center gap-2">
-            {/* FIX: calenderIcon → locationIcon (destination ke liye sahi icon) */}
+            
             <img src={assets.locationIcon} alt="location" className="h-4" />
             <label htmlFor="destinationInput">Destination</label>
           </div>
@@ -71,7 +71,6 @@ const Hero = () => {
             <label htmlFor="checkIn">Check in</label>
           </div>
 
-          {/* FIX: required attribute add kiya */}
           <input
             id="checkIn"
             type="date"
@@ -87,7 +86,6 @@ const Hero = () => {
             <label htmlFor="checkOut">Check out</label>
           </div>
 
-          {/* FIX: required attribute add kiya */}
           <input
             id="checkOut"
             type="date"
@@ -97,8 +95,7 @@ const Hero = () => {
         </div>
 
         {/* Guests */}
-        {/* FIX: guestsIcon add kiya — baaki fields ki tarah consistent */}
-        {/* FIX: max-md:items-center → max-md:items-start for consistency */}
+
         <div className="flex md:flex-col max-md:gap-2 max-md:items-start">
           <div className="flex items-center gap-2">
             <img src={assets.guestsIcon} alt="guests" className="h-4" />
@@ -117,12 +114,12 @@ const Hero = () => {
         </div>
 
         {/* Search Button */}
-        {/* FIX: searchIcon par invert class add ki taaki white background par sahi dike */}
+
         <button
           type="submit"
           className="flex items-center justify-center gap-1 bg-black text-white rounded-md px-4 py-3 cursor-pointer max-md:w-full max-md:py-2 hover:bg-gray-800 transition-colors"
         >
-          <img src={assets.searchIcon} alt="search" className="h-5 invert" />
+          <img src={assets.searchIcon} alt="search" className="h-8 invert" />
           <span>Search</span>
         </button>
 

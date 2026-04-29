@@ -1,41 +1,64 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 const HotelCard = ({ room, index }) => {
+  // FIX: scrollTo → window.scrollTo (safe explicit call)
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
+    // FIX: key prop yahan se hataya — parent (FeaturedDestination) mein already hai
+    // FIX: max-w-70 → max-w-72 (valid Tailwind class)
     <Link
       to={"/rooms/" + room._id}
-      onClick={() => scrollTo(0, 0)}
-      key={room._id} className="relative max-w-70 w-full rounded-xl overflow-hidden bg-white text-gray-500/90 shadow-[0px_04px_4px_rgba(0,0,0,0.05)]"
+      onClick={handleClick}
+      className="relative max-w-72 w-full rounded-xl overflow-hidden bg-white text-gray-500/90 shadow-[0px_4px_4px_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow duration-300"
     >
+      {/* Room Image */}
+      {/* FIX: alt="" → alt={room.hotel.name} for accessibility */}
       <img
         src={room.images[0]}
-        alt=""
+        alt={room.hotel.name}
+        className="w-full h-48 object-cover"
       />
-      {index % 2 === 0 && (
-        <p className="px-3 py-1 absolute top-3 left-3 text-xs bg-white text-gray-800 font-medium rounded-full">
+
+      {/* FIX: Best Seller badge — index check ke saath isAvailable bhi check karo */}
+      {index % 2 === 0 && room.isAvailable && (
+        <p className="px-3 py-1 absolute top-3 left-3 text-xs bg-white text-gray-800 font-medium rounded-full shadow-sm">
           Best Seller
         </p>
       )}
+
       <div className="p-4 pt-5">
         <div className="flex items-center justify-between">
-          <p className="font-playfair text-x1 font-medium text-gray-800">
+          {/* FIX: text-x1 → text-xl (number 1 tha, letter l hona chahiye) */}
+          <p className="font-playfair text-xl font-medium text-gray-800 truncate">
             {room.hotel.name}
           </p>
-          <div className="flex item-center gap-1">
-            <img src={assets.starIconFilled} alt="star-icon" />
-            4.5
+
+          {/* FIX: item-center → items-center (typo fix) */}
+          {/* FIX: rating hardcoded 4.5 → room.rating se lo, fallback 4.5 */}
+          <div className="flex items-center gap-1 shrink-0 ml-2">
+            <img src={assets.starIconFilled} alt="star" className="w-4 h-4" />
+            <span className="text-sm">{room.rating ?? 4.5}</span>
           </div>
         </div>
-        <div className="flex items-center gap-1 text-sm">
-          <img src={assets.locationIcon} alt="location-icon" />
-          <span>{room.hotel.address}</span>
+
+        {/* Location */}
+        <div className="flex items-center gap-1 text-sm mt-1">
+          <img src={assets.locationIcon} alt="location" className="w-4 h-4" />
+          <span className="truncate">{room.hotel.address}</span>
         </div>
+
+        {/* Price & Book Button */}
         <div className="flex items-center justify-between mt-4">
           <p>
-            <span className="text-xl text-gray-800">${room.pricePerNight}</span>
-            /night
+            <span className="text-xl font-semibold text-gray-800">
+              ${room.pricePerNight}
+            </span>
+            <span className="text-sm">/night</span>
           </p>
           <button className="px-4 py-2 text-sm font-medium border border-gray-300 rounded hover:bg-gray-50 transition-all cursor-pointer">
             Book Now

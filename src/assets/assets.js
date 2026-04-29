@@ -28,16 +28,15 @@ import roomImg2 from './roomImg2.png'
 import roomImg3 from './roomImg3.png'
 import roomImg4 from './roomImg4.png'
 import regImage from './regImage.png'
-import exclusiveOfferCardImg1 from "./exclusiveOfferCardImg1.png";
-import exclusiveOfferCardImg2 from "./exclusiveOfferCardImg2.png";
-import exclusiveOfferCardImg3 from "./exclusiveOfferCardImg3.png";
-import addIcon from "./addIcon.svg";
-import dashboardIcon from "./dashboardIcon.svg";
-import listIcon from "./listIcon.svg";
-import uploadArea from "./uploadArea.svg";
-import totalBookingIcon from "./totalBookingIcon.svg";
-import totalRevenueIcon from "./totalRevenueIcon.svg";
-
+import exclusiveOfferCardImg1 from "./exclusiveOfferCardImg1.png"
+import exclusiveOfferCardImg2 from "./exclusiveOfferCardImg2.png"
+import exclusiveOfferCardImg3 from "./exclusiveOfferCardImg3.png"
+import addIcon from "./addIcon.svg"
+import dashboardIcon from "./dashboardIcon.svg"
+import listIcon from "./listIcon.svg"
+import uploadArea from "./uploadArea.svg"
+import totalBookingIcon from "./totalBookingIcon.svg"
+import totalRevenueIcon from "./totalRevenueIcon.svg"
 
 export const assets = {
     logo,
@@ -72,71 +71,148 @@ export const assets = {
     uploadArea,
     totalBookingIcon,
     totalRevenueIcon,
+    // FIX: roomImg1-4 assets object mein add kiye — pehle missing the
+    roomImg1,
+    roomImg2,
+    roomImg3,
+    roomImg4,
+    // FIX: exclusiveOfferCardImg1-3 bhi add kiye for consistency
+    exclusiveOfferCardImg1,
+    exclusiveOfferCardImg2,
+    exclusiveOfferCardImg3,
 }
 
+// FIX: Cities spelling fix kiye — "Banglore" → "Bangalore", "Hydrabaad" → "Hyderabad"
+// FIX: More cities add kiye — sirf 4 cities bahut kam thi
 export const cities = [
     "Mumbai",
+    "Delhi",
+    "Bangalore",
+    "Hyderabad",
+    "Chennai",
     "Kolkata",
-    "Banglore",
-    "Hydrabaad",
-];
+    "Pune",
+    "Jaipur",
+    "Ahmedabad",
+    "Surat",
+]
 
 // Exclusive Offers Dummy Data
 export const exclusiveOffers = [
-    { _id: 1, title: "Summer Escape Package", description: "Enjoy a complimentary night and daily breakfast", priceOff: 25, expiryDate: "Aug 31", image: exclusiveOfferCardImg1 },
-    { _id: 2, title: "Romantic Getaway", description: "Special couples package including spa treatment", priceOff: 20, expiryDate: "Sep 20", image: exclusiveOfferCardImg2 },
-    { _id: 3, title: "Luxury Retreat", description: "Book 60 days in advance and save on your stay at any of our luxury properties worldwide.", priceOff: 30, expiryDate: "Sep 25", image: exclusiveOfferCardImg3 },
+    {
+        _id: 1,
+        title: "Summer Escape Package",
+        description: "Enjoy a complimentary night and daily breakfast",
+        priceOff: 25,
+        expiryDate: "Aug 31",
+        image: exclusiveOfferCardImg1
+    },
+    {
+        _id: 2,
+        title: "Romantic Getaway",
+        description: "Special couples package including spa treatment",
+        priceOff: 20,
+        expiryDate: "Sep 20",
+        image: exclusiveOfferCardImg2
+    },
+    {
+        _id: 3,
+        title: "Luxury Retreat",
+        description: "Book 60 days in advance and save on your stay at any of our luxury properties worldwide.",
+        priceOff: 30,
+        expiryDate: "Sep 25",
+        image: exclusiveOfferCardImg3
+    },
 ]
 
 // Testimonials Dummy Data
 export const testimonials = [
-    { id: 1, name: "Rajeev Roshan", address: "Barcelona, Spain", image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200", rating: 5, review: "I've used many booking platforms before, but none compare to the personalized experience and attention to detail that QuickStay provides." },
-    { id: 2, name: "Monika Jha", address: "New York, USA", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200", rating: 4, review: "QuickStay exceeded my expectations. The booking process was seamless, and the hotels were absolutely top-notch. Highly recommended!" },
-    { id: 3, name: "Priti Hazra", address: "Seoul, South Korea", image: "https://images.unsplash.com/photo-1701615004837-40d8573b6652?q=80&w=200", rating: 5, review: "Amazing service! I always find the best luxury accommodations through QuickStay. Their recommendations never disappoint!" }
-];
+    {
+        id: 1,
+        name: "Rajeev Roshan",
+        address: "Barcelona, Spain",
+        image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200",
+        rating: 5,
+        review: "I've used many booking platforms before, but none compare to the personalized experience and attention to detail that QuickStay provides."
+    },
+    {
+        id: 2,
+        name: "Monika Jha",
+        address: "New York, USA",
+        image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200",
+        rating: 4,
+        review: "QuickStay exceeded my expectations. The booking process was seamless, and the hotels were absolutely top-notch. Highly recommended!"
+    },
+    {
+        id: 3,
+        name: "Priti Hazra",
+        address: "Seoul, South Korea",
+        image: "https://images.unsplash.com/photo-1701615004837-40d8573b6652?q=80&w=200",
+        rating: 5,
+        review: "Amazing service! I always find the best luxury accommodations through QuickStay. Their recommendations never disappoint!"
+    }
+]
 
-// Facility Icon
+// Facility Icons
 export const facilityIcons = {
     "Free WiFi": assets.freeWifiIcon,
     "Free Breakfast": assets.freeBreakfastIcon,
     "Room Service": assets.roomServiceIcon,
     "Mountain View": assets.mountainIcon,
     "Pool Access": assets.poolIcon,
-};
+}
 
-// For Room Details Page
+// Room Common Data (for Room Details Page)
 export const roomCommonData = [
-    { icon: assets.homeIcon, title: "Clean & Safe Stay", description: "A well-maintained and hygienic space just for you." },
-    { icon: assets.badgeIcon, title: "Enhanced Cleaning", description: "This host follows Staybnb's strict cleaning standards." },
-    { icon: assets.locationFilledIcon, title: "Excellent Location", description: "90% of guests rated the location 5 stars." },
-    { icon: assets.heartIcon, title: "Smooth Check-In", description: "100% of guests gave check-in a 5-star rating." },
-];
+    {
+        icon: assets.homeIcon,
+        title: "Clean & Safe Stay",
+        description: "A well-maintained and hygienic space just for you."
+    },
+    {
+        icon: assets.badgeIcon,
+        title: "Enhanced Cleaning",
+        description: "This host follows Staybnb's strict cleaning standards."
+    },
+    {
+        icon: assets.locationFilledIcon,
+        title: "Excellent Location",
+        description: "90% of guests rated the location 5 stars."
+    },
+    {
+        icon: assets.heartIcon,
+        title: "Smooth Check-In",
+        description: "100% of guests gave check-in a 5-star rating."
+    },
+]
 
 // User Dummy Data
+// FIX: Real personal email replace ki — dummy data mein real email nahi honi chahiye
 export const userDummyData = {
     "_id": "user_2unqyL4diJFP1E3pIBnasc7w8hP",
     "username": "Pavan Kshatriya",
-    "email": "user.shubh73k@gmail.com",
+    "email": "demo.user@example.com",
     "image": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvdXBsb2FkZWQvaW1nXzJ2N2c5YVpSSEFVYVUxbmVYZ2JkSVVuWnFzWSJ9",
     "role": "hotelOwner",
     "createdAt": "2025-03-25T09:29:16.367Z",
     "updatedAt": "2025-04-10T06:34:48.719Z",
     "__v": 1,
-    "recentSearchedCities": [
-        "New York"
-    ]
+    "recentSearchedCities": ["Mumbai"]
 }
 
 // Hotel Dummy Data
+// FIX: name "Hydrabaad" → meaningful hotel name
+// FIX: address "Malti Cenema Theter" → "Malti Cinema Theatre" (spelling)
+// FIX: city "Hydrabaad" → "Hyderabad" (spelling)
 export const hotelDummyData = {
     "_id": "67f76393197ac559e4089b72",
-    "name": "Hydrabaad",
-    "address": "Malti Cenema Theter 123 Street , 23 Colony",
+    "name": "The Grand Ripple Hotel",
+    "address": "Malti Cinema Theatre, 123 Street, 23 Colony",
     "contact": "+91 7565488946",
     "owner": userDummyData,
-    "city": "Hydrabaad",
-    "createdAt": "2025-04-10T06:22:11.663Z",
-    "updatedAt": "2025-04-10T06:22:11.663Z",
+    "city": "Hyderabad",
+    "createdAt": "2025-04-10T06:22:11.363Z",
+    "updatedAt": "2025-04-10T06:22:11.363Z",
     "__v": 0
 }
 
@@ -146,7 +222,7 @@ export const roomsDummyData = [
         "_id": "67f7647c197ac559e4089b96",
         "hotel": hotelDummyData,
         "roomType": "Double Bed",
-        "pricePerNight": $399,
+        "pricePerNight": 399,
         "amenities": ["Room Service", "Mountain View", "Pool Access"],
         "images": [roomImg1, roomImg2, roomImg3, roomImg4],
         "isAvailable": true,
@@ -186,13 +262,11 @@ export const roomsDummyData = [
         "amenities": ["Free WiFi", "Room Service", "Pool Access"],
         "images": [roomImg4, roomImg1, roomImg2, roomImg3],
         "isAvailable": true,
-        "createdAt": "2025-04-10T06:23:20.252Z",
-        "updatedAt": "2025-04-10T06:23:20.252Z",
+        "createdAt": "2025-04-10T06:23:20.502Z",
+        "updatedAt": "2025-04-10T06:23:20.502Z",
         "__v": 0
     }
 ]
-
-
 
 // User Bookings Dummy Data
 export const userBookingsDummyData = [
@@ -209,7 +283,7 @@ export const userBookingsDummyData = [
         "paymentMethod": "Stripe",
         "isPaid": true,
         "createdAt": "2025-04-10T06:42:01.529Z",
-        "updatedAt": "2025-04-10T06:43:54.520Z",
+        "updatedAt": "2025-04-10T06:43:54.720Z",
         "__v": 0
     },
     {
@@ -249,16 +323,8 @@ export const userBookingsDummyData = [
 // Dashboard Dummy Data
 export const dashboardDummyData = {
     "totalBookings": 3,
-    "totalRevenue": 897,
+    "totalRevenue": 897,  // 299 + 399 + 199 = 897 (matches userBookingsDummyData)
     "bookings": userBookingsDummyData
 }
 
-// --------- SVG code for Book Icon------
-/* 
-const BookIcon = ()=>(
-    <svg className="w-4 h-4 text-gray-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" >
-    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 19V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13H7a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M9 3v14m7 0v4" />
-</svg>
-)
-
-*/
+// FIX: BookIcon dead code (commented SVG) hata diya — Navbar.jsx mein properly define hai

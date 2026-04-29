@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Components/Navbar";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -13,12 +13,27 @@ import AddRoom from "./Pages/hotelOwner/AddRoom";
 import ListRoom from "./Pages/hotelOwner/ListRoom";
 
 const App = () => {
-  const isOwnerPath = useLocation().pathname.includes("owner");
+  const location = useLocation();
+  const isOwnerPath = location.pathname.includes("owner");
+
+  // FIX: false hardcoded tha — ab useState se properly control hoga
+  const [showHotelReg, setShowHotelReg] = useState(false);
+
   return (
-    <div>
+    // FIX: <div> → <> fragment use kiya (unnecessary wrapper hata diya)
+    <>
+      {/* Navbar — owner path par nahi dikhega */}
       {!isOwnerPath && <Navbar />}
-      {false && <HotelReg />}
-      <div className="min-h-[70vh]">
+
+      {/* FIX: HotelReg ab properly state se control ho raha hai */}
+      {/* FIX: setShowHotelReg prop pass kiya taaki modal band ho sake */}
+      {showHotelReg && (
+        <HotelReg setShowHotelReg={setShowHotelReg} />
+      )}
+
+      {/* Main Content */}
+      {/* FIX: min-h-[70vh] → min-h-screen (better layout) */}
+      <div className="min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/rooms" element={<AllRooms />} />
@@ -31,8 +46,10 @@ const App = () => {
           </Route>
         </Routes>
       </div>
-      <Footer />
-    </div>
+
+      {/* FIX: Footer sirf non-owner pages par dikhega */}
+      {!isOwnerPath && <Footer />}
+    </>
   );
 };
 

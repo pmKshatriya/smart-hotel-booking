@@ -1,102 +1,131 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  // FIX: Newsletter submit handler add kiya
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!email) return;
+    // TODO: API call yahan lagao newsletter subscribe ke liye
+    setSubscribed(true);
+    setEmail("");
+  };
+
   return (
     <div className="bg-[#F6F9FC] text-gray-500/80 pt-8 px-6 md:px-16 lg:px-24 xl:px-32">
       <div className="flex flex-wrap justify-between gap-12 md:gap-6">
+
+        {/* Brand Section */}
         <div className="max-w-80">
-          {/* for color change in logo in footer */}
           <img
             src={assets.logo}
             alt="logo"
             className="mb-4 h-8 md:h-9 invert opacity-80"
           />
+          {/* FIX: "th" → "the" (spelling mistake) */}
           <p className="text-sm">
-            Discover th most extraordinary places to stay, from boutique hotels to luxury villas and private islands.
+            Discover the most extraordinary places to stay, from boutique hotels
+            to luxury villas and private islands.
           </p>
+
+          {/* Social Icons */}
           <div className="flex items-center gap-3 mt-4">
-            <img src={assets.instagramIcon} alt="instagram-icon" className="w-6" />
-            <img src={assets.facebookIcon} alt="facebook-icon" className="w-6" />
-            <img src={assets.twitterIcon} alt="twitter-icon" className="w-6" />
-            <img src={assets.linkendinIcon} alt="linkendin-icon" className="w-6" />
+            {/* FIX: hover opacity add kiya for better UX */}
+            <a href="https://instagram.com" target="_blank" rel="noreferrer"
+              className="hover:opacity-70 transition-opacity">
+              <img src={assets.instagramIcon} alt="instagram" className="w-6" />
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer"
+              className="hover:opacity-70 transition-opacity">
+              <img src={assets.facebookIcon} alt="facebook" className="w-6" />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noreferrer"
+              className="hover:opacity-70 transition-opacity">
+              <img src={assets.twitterIcon} alt="twitter" className="w-6" />
+            </a>
+            {/* FIX: alt text "linkendin" → "linkedin" */}
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer"
+              className="hover:opacity-70 transition-opacity">
+              <img src={assets.linkendinIcon} alt="linkedin" className="w-6" />
+            </a>
           </div>
         </div>
 
+        {/* Company Links */}
         <div>
           <p className="font-playfair text-lg text-gray-800">COMPANY</p>
+          {/* FIX: <a href="#"> → <Link to="..."> React Router ke liye */}
           <ul className="mt-3 flex flex-col gap-2 text-sm">
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Careers</a>
-            </li>
-            <li>
-              <a href="#">Press</a>
-            </li>
-            <li>
-              <a href="#">Blog</a>
-            </li>
-            <li>
-              <a href="#">Partners</a>
-            </li>
+            <li><Link to="/about" className="hover:text-gray-700 transition-colors">About</Link></li>
+            <li><Link to="/careers" className="hover:text-gray-700 transition-colors">Careers</Link></li>
+            <li><Link to="/press" className="hover:text-gray-700 transition-colors">Press</Link></li>
+            <li><Link to="/blog" className="hover:text-gray-700 transition-colors">Blog</Link></li>
+            <li><Link to="/partners" className="hover:text-gray-700 transition-colors">Partners</Link></li>
           </ul>
         </div>
 
+        {/* Support Links */}
         <div>
           <p className="font-playfair text-lg text-gray-800">SUPPORT</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm">
-            <li>
-              <a href="#">Help Center</a>
-            </li>
-            <li>
-              <a href="#">Safety Information</a>
-            </li>
-            <li>
-              <a href="#">Cancellation Options</a>
-            </li>
-            <li>
-              <a href="#">Contact Us</a>
-            </li>
-            <li>
-              <a href="#">Accessibility</a>
-            </li>
+            <li><Link to="/help" className="hover:text-gray-700 transition-colors">Help Center</Link></li>
+            <li><Link to="/safety" className="hover:text-gray-700 transition-colors">Safety Information</Link></li>
+            <li><Link to="/cancellation" className="hover:text-gray-700 transition-colors">Cancellation Options</Link></li>
+            <li><Link to="/contact" className="hover:text-gray-700 transition-colors">Contact Us</Link></li>
+            <li><Link to="/accessibility" className="hover:text-gray-700 transition-colors">Accessibility</Link></li>
           </ul>
         </div>
 
+        {/* Newsletter */}
         <div className="max-w-80">
           <p className="font-playfair text-lg text-gray-800">STAY UPDATED</p>
           <p className="mt-3 text-sm">
             Subscribe to our newsletter for inspiration and special offers.
           </p>
-          <div className="flex items-center mt-4">
-            <input
-              type="text"
-              className="bg-white rounded-l border border-gray-300 h-9 px-3 outline-none"
-              placeholder="Your email"
-            />
-            <button className="flex items-center justify-center bg-black h-9 w-9 aspect-square rounded-r">
-              <img src={assets.arrowIcon} alt="arrow-icon" className="w-3.5 invert" />
-            </button>
-          </div>
+
+          {subscribed ? (
+            <p className="mt-4 text-sm text-green-600 font-medium">
+              ✓ Thank you for subscribing!
+            </p>
+          ) : (
+            // FIX: form + onSubmit handler add kiya
+            <form onSubmit={handleSubscribe} className="flex items-center mt-4">
+              {/* FIX: type="text" → type="email" + required add kiya */}
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-white rounded-l border border-gray-300 h-9 px-3 outline-none text-sm flex-1"
+                placeholder="Your email"
+                required
+              />
+              {/* FIX: type="submit" add kiya button mein */}
+              <button
+                type="submit"
+                className="flex items-center justify-center bg-black h-9 w-9 aspect-square rounded-r hover:bg-gray-800 transition-colors cursor-pointer"
+              >
+                <img src={assets.arrowIcon} alt="subscribe" className="w-3.5 invert" />
+              </button>
+            </form>
+          )}
         </div>
+
       </div>
+
       <hr className="border-gray-300 mt-8" />
+
+      {/* Bottom Bar */}
       <div className="flex flex-col md:flex-row gap-2 items-center justify-between py-5">
-        <p>
-          © {new Date().getFullYear()}Ripple Resort. All rights reserved.
-        </p>
-        <ul className="flex items-center gap-4">
-          <li>
-            <a href="#">Privacy</a>
-          </li>
-          <li>
-            <a href="#">Terms</a>
-          </li>
-          <li>
-            <a href="#">Sitemap</a>
-          </li>
+        {/* FIX: Year aur text ke beech space add kiya */}
+        <p>© {new Date().getFullYear()} Ripple Resort. All rights reserved.</p>
+        <ul className="flex items-center gap-4 text-sm">
+          <li><Link to="/privacy" className="hover:text-gray-700 transition-colors">Privacy</Link></li>
+          <li><Link to="/terms" className="hover:text-gray-700 transition-colors">Terms</Link></li>
+          <li><Link to="/sitemap" className="hover:text-gray-700 transition-colors">Sitemap</Link></li>
         </ul>
       </div>
     </div>

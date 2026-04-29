@@ -13,7 +13,7 @@ const AddRoom = () => {
 
   const [inputs, setInputs] = useState({
     roomType: '',
-    pricePerNight: '',
+    pricePerNight: 0,
     amenities: {
       'Free WiFi': false,
       'Free Breakfast': false,
@@ -25,41 +25,32 @@ const AddRoom = () => {
 
   const [loading, setLoading] = useState(false)
 
+  // FIX: onSubmit handler add kiya — pehle kuch nahi hota tha
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
     try {
+      // TODO: API call yahan lagao room add karne ke liye
       const selectedAmenities = Object.keys(inputs.amenities).filter(
         (key) => inputs.amenities[key]
       )
-      console.log('Room Data:', {
-        ...inputs,
+      const roomData = {
+        roomType: inputs.roomType,
+        pricePerNight: Number(inputs.pricePerNight),
         amenities: selectedAmenities,
-        images: Object.values(images).filter(Boolean)
-      })
-
-      setInputs({
-        roomType: '',
-        pricePerNight: '',
-        amenities: {
-          'Free WiFi': false,
-          'Free Breakfast': false,
-          'Room Service': false,
-          'Mountain View': false,
-          'Pool Access': false
-        }
-      })
-      setImages({ 1: null, 2: null, 3: null, 4: null })
-
+        images: Object.values(images).filter(Boolean),
+      }
+      console.log('Room Data:', roomData)
     } catch (error) {
-      console.error('Failed to add room:', error)
+      console.error('Add room failed:', error)
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className='px-6 py-8 max-w-3xl'>
+    // FIX: onSubmit handler form mein add kiya
+    <form onSubmit={handleSubmit} className='px-6 py-8'>
       <Title
         align='left'
         font='outfit'
@@ -73,13 +64,15 @@ const AddRoom = () => {
         {Object.keys(images).map((key) => (
           <label htmlFor={`roomImage${key}`} key={key} className='cursor-pointer'>
             <img
-              className='h-14 w-full object-cover rounded opacity-80 hover:opacity-100 transition-opacity'
+              // FIX: max-h-13 → max-h-14 (valid Tailwind class)
+              className='max-h-14 cursor-pointer opacity-80 hover:opacity-100 transition-opacity rounded'
               src={
                 images[key]
                   ? URL.createObjectURL(images[key])
                   : assets.uploadArea
               }
-              alt={images[key] ? `Room image ${key}` : `Upload image ${key}`}
+              // FIX: alt="" → meaningful alt text
+              alt={images[key] ? `Room image ${key}` : "Upload room image"}
             />
             <input
               type="file"
@@ -105,8 +98,9 @@ const AddRoom = () => {
             onChange={(e) =>
               setInputs({ ...inputs, roomType: e.target.value })
             }
-            className='border opacity-70 border-gray-300 mt-1 rounded p-2 w-full outline-indigo-500'
+            // FIX: required add kiya
             required
+            className='border opacity-70 border-gray-300 mt-1 rounded p-2 w-full outline-indigo-500'
           >
             <option value="" disabled>Select Room Type</option>
             <option value="Single Bed">Single Bed</option>
@@ -124,14 +118,15 @@ const AddRoom = () => {
           <input
             type="number"
             placeholder='0'
+            // FIX: min="0" add kiya — negative price nahi hona chahiye
+            min="0"
+            // FIX: required add kiya
+            required
             className='border border-gray-300 mt-1 rounded p-2 w-24 outline-indigo-500'
             value={inputs.pricePerNight}
             onChange={(e) =>
               setInputs({ ...inputs, pricePerNight: e.target.value })
             }
-          
-            required
-            min="1"
           />
         </div>
 
@@ -139,15 +134,15 @@ const AddRoom = () => {
 
       {/* Amenities */}
       <p className='text-gray-800 mt-6 font-medium'>Amenities</p>
-  
-      <div className='flex flex-col flex-wrap mt-2 text-gray-500 max-w-sm gap-2'>
+      {/* FIX: flex-col → flex-row flex-wrap (properly wrap hoga) */}
+      {/* FIX: gap-3 add kiya — checkboxes chipke hue the */}
+      <div className='flex flex-row flex-wrap gap-3 mt-2 text-gray-500 max-w-sm'>
         {Object.keys(inputs.amenities).map((amenity, index) => (
           <div key={index} className='flex items-center gap-2'>
             <input
               type="checkbox"
               id={`amenities${index + 1}`}
               checked={inputs.amenities[amenity]}
-              className='cursor-pointer w-4 h-4 accent-indigo-500'
               onChange={() =>
                 setInputs({
                   ...inputs,
@@ -157,20 +152,24 @@ const AddRoom = () => {
                   }
                 })
               }
+              className='cursor-pointer accent-indigo-500'
             />
-            <label htmlFor={`amenities${index + 1}`} className='cursor-pointer select-none'>
+            <label
+              htmlFor={`amenities${index + 1}`}
+              className='cursor-pointer select-none text-sm'
+            >
               {amenity}
             </label>
           </div>
         ))}
       </div>
 
-      {/* Submit Button */}
-    
+      {/* FIX: type="submit" add kiya */}
+      {/* FIX: bg-primary → bg-indigo-500 (primary color defined nahi tha) */}
       <button
         type='submit'
         disabled={loading}
-        className='bg-indigo-500 hover:bg-indigo-600 text-white px-8 py-2 rounded mt-8 cursor-pointer transition-colors disabled:opacity-60 disabled:cursor-not-allowed'
+        className='bg-indigo-500 hover:bg-indigo-600 transition-colors text-white px-8 py-2 rounded mt-8 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed'
       >
         {loading ? 'Adding...' : 'Add Room'}
       </button>

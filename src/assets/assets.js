@@ -119,8 +119,8 @@ export const userDummyData = {
     "email": "user.shubh73k@gmail.com",
     "image": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvdXBsb2FkZWQvaW1nXzJ2N2c5YVpSSEFVYVUxbmVYZ2JkSVVuWnFzWSJ9",
     "role": "hotelOwner",
-    "createdAt": "2025-03-25T09:29:16.367Z",
-    "updatedAt": "2025-04-10T06:34:48.719Z",
+    "createdAt": "2026-04-29T09:29:16.367Z",
+    "updatedAt": "2026-05-10T06:34:48.719Z",
     "__v": 1,
     "recentSearchedCities": [
         "Maharastra"
@@ -135,8 +135,8 @@ export const hotelDummyData = {
     "contact": "+91 7565488946",
     "owner": userDummyData,
     "city": "Hydrabaad",
-    "createdAt": "2025-04-10T06:22:11.663Z",
-    "updatedAt": "2025-04-10T06:22:11.663Z",
+    "createdAt": "2026-04-29T06:22:11.663Z",
+    "updatedAt": "2026-05-10T06:22:11.663Z",
     "__v": 0
 }
 
@@ -150,8 +150,8 @@ export const roomsDummyData = [
         "amenities": ["Room Service", "Mountain View", "Pool Access"],
         "images": [roomImg1, roomImg2, roomImg3, roomImg4],
         "isAvailable": true,
-        "createdAt": "2025-04-10T06:26:04.013Z",
-        "updatedAt": "2025-04-10T06:26:04.013Z",
+        "createdAt": "2026-04-29T06:26:04.013Z",
+        "updatedAt": "2026-05-10T06:26:04.013Z",
         "__v": 0
     },
     {
@@ -162,8 +162,8 @@ export const roomsDummyData = [
         "amenities": ["Room Service", "Mountain View", "Pool Access"],
         "images": [roomImg2, roomImg3, roomImg4, roomImg1],
         "isAvailable": true,
-        "createdAt": "2025-04-10T06:25:22.593Z",
-        "updatedAt": "2025-04-10T06:25:22.593Z",
+        "createdAt": "2026-04-29T06:25:22.593Z",
+        "updatedAt": "2026-05-10T06:25:22.593Z",
         "__v": 0
     },
     {
@@ -174,8 +174,8 @@ export const roomsDummyData = [
         "amenities": ["Free WiFi", "Free Breakfast", "Room Service"],
         "images": [roomImg3, roomImg4, roomImg1, roomImg2],
         "isAvailable": true,
-        "createdAt": "2025-04-10T06:24:06.285Z",
-        "updatedAt": "2025-04-10T06:24:06.285Z",
+        "createdAt": "2026-05-05T06:24:06.285Z",
+        "updatedAt": "2026-05-10T06:24:06.285Z",
         "__v": 0
     },
     {

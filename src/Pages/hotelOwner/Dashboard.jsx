@@ -103,11 +103,10 @@ const Dashboard = () => {
                   <td className="py-3 px-4 border-t border-gray-300">
                     <div className="flex justify-center">
                       <span
-                        className={`py-1 px-3 text-xs rounded-full ${
-                          item.isPaid
+                        className={`py-1 px-3 text-xs rounded-full ${item.isPaid
                             ? "bg-green-100 text-green-600"
                             : "bg-amber-100 text-amber-600"
-                        }`}
+                          }`}
                       >
                         {item.isPaid ? "Completed" : "Pending"}
                       </span>

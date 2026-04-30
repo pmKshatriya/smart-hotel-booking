@@ -5,10 +5,9 @@ import { assets, cities } from "../assets/assets";
 const Hero = () => {
   const navigate = useNavigate();
 
-  
   const handleSearch = (e) => {
     e.preventDefault();
-    
+
     navigate("/rooms");
   };
 
@@ -23,7 +22,7 @@ const Hero = () => {
       </p>
 
       {/* Heading */}
-     
+
       <h1 className="font-playfair text-2xl md:text-[56px] md:leading-[56px] font-bold md:font-extrabold max-w-xl mt-4">
         Discover Your Perfect Getaway Destination
       </h1>
@@ -34,16 +33,13 @@ const Hero = () => {
         hotels and resorts. Start your journey today.
       </p>
 
-      
       <form
         onSubmit={handleSearch}
         className="bg-white text-gray-800 rounded-lg px-6 py-4 mt-8 flex flex-col md:flex-row gap-4 max-md:items-start max-md:mx-auto"
       >
-
         {/* Destination */}
         <div>
           <div className="flex items-center gap-2">
-            
             <img src={assets.locationIcon} alt="location" className="h-4" />
             <label htmlFor="destinationInput">Destination</label>
           </div>
@@ -122,7 +118,6 @@ const Hero = () => {
           <img src={assets.searchIcon} alt="search" className="h-8 invert" />
           <span>Search</span>
         </button>
-
       </form>
     </div>
   );

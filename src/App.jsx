@@ -16,23 +16,16 @@ const App = () => {
   const location = useLocation();
   const isOwnerPath = location.pathname.includes("owner");
 
-  // FIX: false hardcoded tha — ab useState se properly control hoga
   const [showHotelReg, setShowHotelReg] = useState(false);
 
   return (
-    // FIX: <div> → <> fragment use kiya (unnecessary wrapper hata diya)
     <>
-      {/* Navbar — owner path par nahi dikhega */}
       {!isOwnerPath && <Navbar />}
 
-      {/* FIX: HotelReg ab properly state se control ho raha hai */}
-      {/* FIX: setShowHotelReg prop pass kiya taaki modal band ho sake */}
-      {showHotelReg && (
-        <HotelReg setShowHotelReg={setShowHotelReg} />
-      )}
+      {showHotelReg && <HotelReg setShowHotelReg={setShowHotelReg} />}
 
       {/* Main Content */}
-      {/* FIX: min-h-[70vh] → min-h-screen (better layout) */}
+
       <div className="min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -47,7 +40,6 @@ const App = () => {
         </Routes>
       </div>
 
-      {/* FIX: Footer sirf non-owner pages par dikhega */}
       {!isOwnerPath && <Footer />}
     </>
   );

@@ -4,8 +4,7 @@ import { assets } from "../assets/assets";
 import { useClerk, useUser, UserButton } from "@clerk/clerk-react";
 
 /* ---------------- BOOK ICON ---------------- */
-// Note: assets.js mein bhi yeh SVG comment mein pada hai,
-// yahan component ke andar rakha hai taaki reuse ho sake
+
 const BookIcon = () => (
   <svg
     className="w-4 h-4 text-gray-700"
@@ -28,8 +27,8 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Hotels", path: "/rooms" },
-    { name: "Experience", path: "/" },   // TODO: Replace with actual path when page is ready
-    { name: "About", path: "/" },        // TODO: Replace with actual path when page is ready
+    { name: "Experience", path: "/" }, // TODO: Replace with actual path when page is ready
+    { name: "About", path: "/" }, // TODO: Replace with actual path when page is ready
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,8 +47,6 @@ const Navbar = () => {
       return;
     }
 
-    // Home page pe scroll position check karo
-    // FIX: Jab home pe wapas aao to current scroll position se set karo
     setIsScrolled(window.scrollY > 10);
 
     const handleScroll = () => {
@@ -60,7 +57,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [location.pathname]);
 
-  // Mobile menu band karo jab route change ho
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
@@ -87,17 +83,12 @@ const Navbar = () => {
       {/* ---------------- DESKTOP NAV ---------------- */}
       <div className="hidden md:flex items-center gap-4 lg:gap-8">
         {navLinks.map((link, i) => (
-          <Link
-            key={i}
-            to={link.path}
-            className="group flex flex-col gap-0.5"
-          >
+          <Link key={i} to={link.path} className="group flex flex-col gap-0.5">
             {link.name}
             <div className="h-0.5 w-0 group-hover:w-full bg-current transition-all duration-300" />
           </Link>
         ))}
 
-        {/* FIX: Dashboard button sirf logged-in users ko dikhega */}
         {user && (
           <button
             onClick={() => navigate("/owner")}
@@ -158,7 +149,6 @@ const Navbar = () => {
           </UserButton>
         )}
 
-        {/* FIX: closeMenu aur menuIcon dono assets mein hain, sahi wala use karo */}
         <img
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           src={isMenuOpen ? assets.closeMenu : assets.menuIcon}
@@ -175,7 +165,7 @@ const Navbar = () => {
         ${isMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}`}
       >
         {/* Close Button */}
-        {/* FIX: h-6.5 valid Tailwind class nahi — h-6 ya h-7 use karo */}
+
         <button
           className="absolute top-4 right-4 p-1 cursor-pointer"
           onClick={() => setIsMenuOpen(false)}
@@ -196,7 +186,7 @@ const Navbar = () => {
           </Link>
         ))}
 
-        {/* Dashboard - sirf logged-in users ke liye */}
+        {/* Dashboard */}
         {user && (
           <button
             onClick={() => {
@@ -209,7 +199,7 @@ const Navbar = () => {
           </button>
         )}
 
-        {/* Login - sirf logged-out users ke liye */}
+        {/* Login */}
         {!user && (
           <button
             onClick={() => {

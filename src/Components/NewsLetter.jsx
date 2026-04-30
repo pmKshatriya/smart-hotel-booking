@@ -15,9 +15,7 @@ const NewsLetter = () => {
   };
 
   return (
-
     <div className="flex flex-col items-center max-w-5xl lg:w-full rounded-2xl px-4 py-12 md:py-16 mx-2 lg:mx-auto my-20 bg-gray-900 text-white">
-
       <Title
         title="Stay Inspired"
         subTitle="Join our newsletter and be the first to discover new destinations, exclusive offers and travel inspiration."
@@ -25,16 +23,18 @@ const NewsLetter = () => {
 
       {subscribed ? (
         <div className="mt-8 flex flex-col items-center gap-2">
-          <p className="text-green-400 font-medium text-lg">✓ You're subscribed!</p>
-          <p className="text-gray-400 text-sm">Thank you for joining us. Stay tuned for updates.</p>
+          <p className="text-green-400 font-medium text-lg">
+            ✓ You're subscribed!
+          </p>
+          <p className="text-gray-400 text-sm">
+            Thank you for joining us. Stay tuned for updates.
+          </p>
         </div>
       ) : (
-
         <form
           onSubmit={handleSubmit}
           className="flex flex-col md:flex-row items-center justify-center gap-4 mt-6 w-full"
         >
-
           <input
             type="email"
             value={email}

@@ -83,11 +83,10 @@ const RoomDetails = () => {
                   key={index}
                   src={image}
                   alt={`Room view ${index + 1}`}
-                  className={`w-full rounded-xl shadow-md object-cover cursor-pointer h-32 lg:h-44 transition-all ${
-                    mainImage === image
+                  className={`w-full rounded-xl shadow-md object-cover cursor-pointer h-32 lg:h-44 transition-all ${mainImage === image
                       ? "outline outline-2 outline-orange-500"
                       : "hover:opacity-90"
-                  }`}
+                    }`}
                 />
               ))}
           </div>

@@ -71,19 +71,17 @@ export const assets = {
     uploadArea,
     totalBookingIcon,
     totalRevenueIcon,
-    // FIX: roomImg1-4 assets object mein add kiye — pehle missing the
+    
     roomImg1,
     roomImg2,
     roomImg3,
     roomImg4,
-    // FIX: exclusiveOfferCardImg1-3 bhi add kiye for consistency
+    
     exclusiveOfferCardImg1,
     exclusiveOfferCardImg2,
     exclusiveOfferCardImg3,
 }
 
-// FIX: Cities spelling fix kiye — "Banglore" → "Bangalore", "Hydrabaad" → "Hyderabad"
-// FIX: More cities add kiye — sirf 4 cities bahut kam thi
 export const cities = [
     "Mumbai",
     "Delhi",
@@ -130,15 +128,15 @@ export const testimonials = [
     {
         id: 1,
         name: "Rajeev Roshan",
-        address: "Barcelona, Spain",
+        address: "Kolkata , India",
         image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200",
         rating: 5,
         review: "I've used many booking platforms before, but none compare to the personalized experience and attention to detail that QuickStay provides."
     },
     {
         id: 2,
-        name: "Monika Jha",
-        address: "New York, USA",
+        name: "Pavan Kshatriya",
+        address: "Jalgaon Maharastra",
         image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200",
         rating: 4,
         review: "QuickStay exceeded my expectations. The booking process was seamless, and the hotels were absolutely top-notch. Highly recommended!"
@@ -146,7 +144,7 @@ export const testimonials = [
     {
         id: 3,
         name: "Priti Hazra",
-        address: "Seoul, South Korea",
+        address: "Bangalore, India",
         image: "https://images.unsplash.com/photo-1701615004837-40d8573b6652?q=80&w=200",
         rating: 5,
         review: "Amazing service! I always find the best luxury accommodations through QuickStay. Their recommendations never disappoint!"
@@ -187,7 +185,7 @@ export const roomCommonData = [
 ]
 
 // User Dummy Data
-// FIX: Real personal email replace ki — dummy data mein real email nahi honi chahiye
+
 export const userDummyData = {
     "_id": "user_2unqyL4diJFP1E3pIBnasc7w8hP",
     "username": "Pavan Kshatriya",
@@ -198,14 +196,11 @@ export const userDummyData = {
     "updatedAt": "2026-05-10T06:34:48.719Z",
     "__v": 1,
     "recentSearchedCities": [
-        "New York"
+        "Mumbai"
     ]
 }
 
 // Hotel Dummy Data
-// FIX: name "Hydrabaad" → meaningful hotel name
-// FIX: address "Malti Cenema Theter" → "Malti Cinema Theatre" (spelling)
-// FIX: city "Hydrabaad" → "Hyderabad" (spelling)
 export const hotelDummyData = {
     "_id": "67f76393197ac559e4089b72",
     "name": "The Grand Ripple Hotel",
@@ -213,8 +208,8 @@ export const hotelDummyData = {
     "contact": "+91 7565488946",
     "owner": userDummyData,
     "city": "Hydrabaad",
-    "createdAt": "2025-04-10T06:22:11.663Z",
-    "updatedAt": "2025-04-10T06:22:11.663Z",
+    "createdAt": "2026-04-23T06:22:11.663Z",
+    "updatedAt": "2026-05-10T06:22:11.663Z",
     "__v": 0
 }
 
@@ -264,8 +259,8 @@ export const roomsDummyData = [
         "amenities": ["Free WiFi", "Room Service", "Pool Access"],
         "images": [roomImg4, roomImg1, roomImg2, roomImg3],
         "isAvailable": true,
-        "createdAt": "2025-04-10T06:23:20.502Z",
-        "updatedAt": "2025-04-10T06:23:20.502Z",
+        "createdAt": "2026-04-23T06:23:20.502Z",
+        "updatedAt": "2026-06-10T06:23:20.502Z",
         "__v": 0
     }
 ]
@@ -277,15 +272,15 @@ export const userBookingsDummyData = [
         "user": userDummyData,
         "room": roomsDummyData[1],
         "hotel": hotelDummyData,
-        "checkInDate": "2025-04-30T00:00:00.000Z",
-        "checkOutDate": "2025-05-01T00:00:00.000Z",
+        "checkInDate": "2026-04-23T00:00:00.000Z",
+        "checkOutDate": "2026-05-10T00:00:00.000Z",
         "totalPrice": 299,
         "guests": 1,
         "status": "pending",
         "paymentMethod": "Stripe",
         "isPaid": true,
-        "createdAt": "2025-04-10T06:42:01.529Z",
-        "updatedAt": "2025-04-10T06:43:54.720Z",
+        "createdAt": "2026-04-23T06:42:01.529Z",
+        "updatedAt": "2026-05-10T06:43:54.720Z",
         "__v": 0
     },
     {
@@ -293,15 +288,15 @@ export const userBookingsDummyData = [
         "user": userDummyData,
         "room": roomsDummyData[0],
         "hotel": hotelDummyData,
-        "checkInDate": "2025-04-27T00:00:00.000Z",
-        "checkOutDate": "2025-04-28T00:00:00.000Z",
+        "checkInDate": "2026-04-27T00:00:00.000Z",
+        "checkOutDate": "2026-04-28T00:00:00.000Z",
         "totalPrice": 399,
         "guests": 1,
         "status": "pending",
         "paymentMethod": "Pay At Hotel",
         "isPaid": false,
-        "createdAt": "2025-04-10T06:41:45.873Z",
-        "updatedAt": "2025-04-10T06:41:45.873Z",
+        "createdAt": "2026-04-23T06:41:45.873Z",
+        "updatedAt": "2026-05-10T06:41:45.873Z",
         "__v": 0
     },
     {
@@ -309,15 +304,15 @@ export const userBookingsDummyData = [
         "user": userDummyData,
         "room": roomsDummyData[3],
         "hotel": hotelDummyData,
-        "checkInDate": "2025-04-11T00:00:00.000Z",
-        "checkOutDate": "2025-04-12T00:00:00.000Z",
+        "checkInDate": "2026-04-28T00:00:00.000Z",
+        "checkOutDate": "2026-05-02T00:00:00.000Z",
         "totalPrice": 199,
         "guests": 1,
         "status": "pending",
         "paymentMethod": "Pay At Hotel",
         "isPaid": false,
-        "createdAt": "2025-04-10T06:41:20.501Z",
-        "updatedAt": "2025-04-10T06:41:20.501Z",
+        "createdAt": "2026-04-28T06:41:20.501Z",
+        "updatedAt": "2026-05-02T06:41:20.501Z",
         "__v": 0
     }
 ]
